@@ -1,10 +1,11 @@
-import Drink from "./Drink"
+import Counter from "./Counter"
+import './App.css'
 
 function App() {
 
   return (
     <>
-    <Drink drink='coffee'/>
+      <Counter />
     </>
   )
 

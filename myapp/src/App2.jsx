@@ -4,11 +4,16 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(123);
+  // count = 1;  상수이기 때문에 오류 발생
+  const [firstName, setFirstName] = useState('일');
+  const [lastName, setLastName] = useState('김');
 
   return (
     <>
       <div>
+        <p>{firstName}</p>
+        <p>{lastName}</p>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
