@@ -1,8 +1,7 @@
 import './App.css'
-import Counter from './Counter4'
+import Counter from "./Counter3"
 
 function App() {
-  
 
   return (
     <>
