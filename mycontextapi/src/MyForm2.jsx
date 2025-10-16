@@ -11,13 +11,12 @@ function MyForm2() {
 
   const handleSubmit = (event) => {
     alert(`'${text}' 라고 입력하셨습니다.`);
-    event.preventDefault();
+    event.preventDefault(); // 다음 페이지로 못 넘어가게 막아주는 것
   }
 
   return(
     <form onSubmit={handleSubmit}>
       <input type="text" onChange={event => setText(event.target.value)} value={text}/>
-      <br />
       <br />
       <input type="submit" value='클릭하세요 😊' />
     </form>
