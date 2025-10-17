@@ -10,6 +10,7 @@ function Repositories () {
   const { isLoading, isError, data } = useQuery({
     queryKey: ['repositories'],
     queryFn: getGerepositories,
+    staleTime: 60 * 1000,   // 1분을 의미
   })
 
   if(isLoading) {
