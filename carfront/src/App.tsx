@@ -5,7 +5,6 @@ import Carlist from "./components/Carlist";
 const queryClient = new QueryClient();
 
 function App() {
-  
 
   return (
     <Container maxWidth="xl">
@@ -25,3 +24,4 @@ function App() {
 }
 
 export default App
+
