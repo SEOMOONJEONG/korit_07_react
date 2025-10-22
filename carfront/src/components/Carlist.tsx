@@ -2,10 +2,11 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 // import { CarResponse } from "../types"; table 태그에서는 data.map() 때문에 필요하지만, x-data-grid 사용 이후에는 필요 없기 때문에 주석 처리 했습니다.
 import { getCars, deleteCar } from "../api/carapi";
 import { DataGrid, GridColDef, GridCellParams, GridToolbar } from "@mui/x-data-grid";
-import { Snackbar } from "@mui/material";
+import { Snackbar, IconButton } from "@mui/material";
 import { useState } from "react";
 import AddCar from "./AddCar";
 import EditCar from "./EditCar";
+import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 
 function Carlist() {
   const [ open, setOpen ] = useState(false);
@@ -51,14 +52,14 @@ function Carlist() {
       filterable: false,
       disableColumnMenu: true,
       renderCell: (params: GridCellParams) => (
-        <button
+        <IconButton aria-label="delete" size="small"
           onClick={() => {
             if(confirm(`${params.row.brand}의 ${params.row.model} 자동차🚗를 삭제하시겠습니까?`)) {
               mutate(params.row._links.self.href);}}
             }
         >
-          Delete
-        </button>
+          <DeleteForeverRoundedIcon fontSize="small" />
+        </IconButton>
       )
     }
   ];
