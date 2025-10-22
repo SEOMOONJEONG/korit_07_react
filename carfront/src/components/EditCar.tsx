@@ -1,9 +1,10 @@
 import { ChangeEvent, useState } from "react";
 import { Car, CarResponse, CarEntity } from "../types";
-import { Dialog, DialogActions, DialogTitle, Button } from "@mui/material";
+import { Dialog, DialogActions, DialogTitle, Button, IconButton, Tooltip } from "@mui/material";
 import CarDialogContent from "./CarDialogContent";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { updateCar } from "../api/carapi";
+import EditRoundedIcon from '@mui/icons-material/EditRounded';
 
 type FormProps = {
   cardata: CarResponse
@@ -71,15 +72,17 @@ function EditCar ({cardata}:FormProps) {
 
   return (
     <>
-      <Button onClick={handleClickOpen}>
-        Edit
-      </Button>
+      <Tooltip title="Edit car">
+        <IconButton aria-label="edit" size="small" onClick={handleClickOpen} >
+          <EditRoundedIcon fontSize="small" />
+        </IconButton>
+      </Tooltip>
       <Dialog open={open} onClose={handleClickClose}>
         <DialogTitle>Edit Car</DialogTitle>
         <CarDialogContent car={car} handleChange={handleChange}></CarDialogContent>
         <DialogActions>
-          <button onClick={handleClickClose}>Cancle | 취소</button>
-          <button onClick={handleSave}>Save | 저장</button>
+          <Button onClick={handleClickClose}>Cancle | 취소</Button>
+          <Button onClick={handleSave}>Save | 저장</Button>
         </DialogActions>
       </Dialog>
     </>
